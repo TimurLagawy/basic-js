@@ -17,11 +17,18 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
-function dateSample(/* sampleActivity */) {
-  dateSample.Math.ceil =
-    (Math.log(MODERN_ACTIVITY / dateSample()) * HALF_LIFE_PERIOD) / 0.693;
-  return dateSample;
+dateSample("1");
+function dateSample(sampleActivity) {
+  if (typeof sampleActivity == "number" || typeof sampleActivity == "object") {
+    return false;
+  }
+  let res = Math.ceil(
+    (Math.log(MODERN_ACTIVITY / dateSample()) * HALF_LIFE_PERIOD) / 0.693
+  );
+  if (typeof res == "number" && !isNaN(res) && !(res == Infinity) && res >= 0)
+    return res;
 }
+return false;
 
 module.exports = {
   dateSample,
