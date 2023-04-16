@@ -17,7 +17,7 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
-dateSample("1");
+
 function dateSample(sampleActivity) {
   if (typeof sampleActivity == "number" || typeof sampleActivity == "object") {
     return false;
