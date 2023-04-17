@@ -13,7 +13,7 @@ const HALF_LIFE_PERIOD = 5730;
  *
  * @example
  *
- * dateSample('1') => 22387
+ *let dateSample('1') => 22387
  * dateSample('WOOT!') => false
  *
  */
