@@ -17,9 +17,15 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
-
+let sampleActivity = "1";
 function dateSample(sampleActivity) {
-  if (typeof sampleActivity == "number" || typeof sampleActivity == "object") {
+  if (
+    typeof sampleActivity == "string" ||
+    typeof sampleActivity == "object" ||
+    isNaN(sampleActivity) ||
+    sampleActivity > MODERN_ACTIVITY ||
+    sampleActivity <= 0
+  ) {
     return false;
   }
   let res = Math.ceil(
