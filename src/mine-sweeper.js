@@ -23,7 +23,7 @@ const { NotImplementedError } = require("../extensions/index.js");
  *  [1, 1, 1]
  * ]
  */
-function countMines(matrix, row, col) {
+function minesweeper(matrix, row, col) {
   const directions = [
     [-1, -1],
     [-1, 0],
