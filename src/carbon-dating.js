@@ -33,7 +33,7 @@ const HALF_LIFE_PERIOD = 5730;
   if (typeof res == "number" && !isNaN(res) && !(res == Infinity) && res >= 0)
     return res;
 }
-return false;
+
 
 module.exports = {
   dateSample,
