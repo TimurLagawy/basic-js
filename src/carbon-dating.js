@@ -17,7 +17,7 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
- function dateSample(sampleActivity) {
+/*function dateSample(sampleActivity) {
   if (
     typeof sampleActivity == "string" ||
     typeof sampleActivity == "object" ||
@@ -32,8 +32,23 @@ const HALF_LIFE_PERIOD = 5730;
   );
   if (typeof res == "number" && !isNaN(res) && !(res == Infinity) && res >= 0)
     return res;
-}
+} */
 
+function dateSample(sampleActivity) {
+  if (
+    typeof sampleActivity !== "string" ||
+    isNaN(parseFloat(sampleActivity)) ||
+    parseFloat(sampleActivity) <= 0 ||
+    parseFloat(sampleActivity) > MODERN_ACTIVITY
+  ) {
+    return false;
+  }
+
+  const k = 0.693 / HALF_LIFE_PERIOD;
+  const years = Math.log(MODERN_ACTIVITY / parseFloat(sampleActivity)) / k;
+
+  return Math.ceil(years);
+}
 
 module.exports = {
   dateSample,
